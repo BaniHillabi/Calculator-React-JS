@@ -33,7 +33,7 @@ const HitungBMI = () => {
         <h1>Body Mass Index</h1>
       </div>
       <label>
-        Berat (kg):
+        Berat (kg)
         <input
           type="number"
           value={weight}
@@ -42,7 +42,7 @@ const HitungBMI = () => {
       </label>
       <br />
       <label>
-        Tinggi (cm):
+        Tinggi (cm)
         <input
           type="number"
           value={height}
