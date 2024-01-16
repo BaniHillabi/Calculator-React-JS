@@ -1,15 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
-import Home from "./pages/home";
+import Utama from "./routes/Utama";
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/*" element={<h1>404 Not Found</h1>}></Route>
-      </Routes>
-    </Router>
+    <>
+      <Utama />
+    </>
   );
 };
 
