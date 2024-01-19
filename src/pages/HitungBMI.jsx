@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 const HitungBMI = () => {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
-  const [bmi, setBMI] = useState(null);
+  const [bmi, setBMI] = useState("-");
   const [status, setStatus] = useState(null);
 
   const calculateBMI = () => {
@@ -14,61 +14,72 @@ const HitungBMI = () => {
       setBMI(hasil);
 
       if (hasil < 18.5) {
-        setStatus(" Kurus ~ Makan yang banyak");
+        setStatus("Anda Kurus ~ Makan yang banyak");
       } else if (hasil < 24.9) {
-        setStatus(" Amaann ~ Pertahankan");
+        setStatus("Anda Amaann ~ Pertahankan");
       } else if (hasil < 29.9) {
-        setStatus(" Gemuk ~ Jangan lupa Olahraga");
+        setStatus("Anda Gemuk ~ Jangan lupa Olahraga");
       } else {
-        setStatus(" Obesitas ~ Gak tau lagi");
+        setStatus("Anda Obesitas ~ Gak tau lagi");
       }
     } else {
-      setBMI(null);
-      setStatus(null);
+      setBMI("-");
+      if (!height && !weight) {
+        setStatus("Isi Formnya dulu!!");
+      } else if (!weight) {
+        setStatus("Isi Beratmu!!");
+      } else {
+        setStatus("Isi Tinggimu!!");
+      }
     }
   };
 
   return (
     <>
-    <Navbar />
-      <div className="d-flex justify-content-center">
-        <div class="card text-center col-3">
+      <Navbar />
+      <div className="App container col-sm-6">
+        <div class="card text-center">
           <div class="card-header">
             <h1>Body Mass Index</h1>
           </div>
-          <label>
-            Berat (kg)
-            <input
-              type="number"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}
-            />
-          </label>
-          <br />
-          <label>
-            Tinggi (cm)
-            <input
-              type="number"
-              value={height}
-              onChange={(e) => setHeight(e.target.value)}
-            />
-          </label>
-          <br />
-          <button
-            type="button"
-            className="btn btn-primary"
-            id="liveAlertBtn"
-            onClick={calculateBMI}
-          >
-            Hitung
-          </button>
-          <br />
-          <h2>BMI: {bmi}</h2>
-          <div id="liveAlertPlaceholder">
-            <div>
-              <div class="alert alert-success alert-dismissible" role="alert">
-                <div>
-                  <p>Anda {status}</p>
+          <div className="card-body">
+            <div className="input-group my-2">
+              <span className="input-group-text">Berat (kg)</span>
+              <input
+                type="number"
+                className="form-control"
+                value={weight}
+                onChange={(e) => setWeight(e.target.value)}
+              />
+            </div>
+            <div className="input-group my-2">
+              <span className="input-group-text">Tinggi (cm)</span>
+              <input
+                type="number"
+                className="form-control"
+                value={height}
+                onChange={(e) => setHeight(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="card-footer">
+            <div className="d-grid gap-2 ">
+              <button
+                type="button"
+                className="btn btn-primary"
+                id="liveAlertBtn"
+                onClick={calculateBMI}
+              >
+                Hitung
+              </button>
+            </div>
+            <h2>BMI : {bmi}</h2>
+            <div id="liveAlertPlaceholder">
+              <div>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                  <div>
+                    <p>{status}</p>
+                  </div>
                 </div>
               </div>
             </div>
