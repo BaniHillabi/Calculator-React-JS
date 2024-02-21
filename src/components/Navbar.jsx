@@ -25,19 +25,38 @@ const Navbar = () => {
                 Hitung Cicilan
               </Link>
             </li>
-            
+
             <li class="nav-item dropdown">
-          <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Konversi
-          </button>
-          <ul class="dropdown-menu dropdown-menu">
-            <li><Link className="dropdown-item" to="/KonversiBiner">Konversi Biner</Link></li>
-            <li><Link className="dropdown-item" to="/KonversiOktal">Konversi Oktal</Link></li>
-            <li><Link className="dropdown-item" to="/KonversiDesimal">Konversi Desimal</Link></li>
-            <li><Link className="dropdown-item" to="/KonversiHeksaDesimal">Konversi Heksadesimal</Link></li>
-            
-          </ul>
-        </li>
+              <button
+                class="btn dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Konversi
+              </button>
+              <ul class="dropdown-menu dropdown-menu">
+                <li>
+                  <Link className="dropdown-item" to="/KonversiBiner">
+                    Konversi Biner
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/KonversiOktal">
+                    Konversi Oktal
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/KonversiDesimal">
+                    Konversi Desimal
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/KonversiHeksaDesimal">
+                    Konversi Heksadesimal
+                  </Link>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
